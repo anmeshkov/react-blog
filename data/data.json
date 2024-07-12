@@ -1,37 +1,7 @@
 {
   "posts": [
     {
-      "title": "Third Post",
-      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem fuga nisi cum earum odio assumenda provident laborum quisquam ipsum, eaque accusantium maiores incidunt atque porro dicta dolores ad soluta modi?",
-      "author": "Tom Soyer",
-      "id": "3"
-    },
-    {
-      "id": "ee86",
-      "title": "qwe",
-      "body": "we",
-      "author": "Mary Jane"
-    },
-    {
-      "id": "7249",
-      "title": "qwe",
-      "body": "we",
-      "author": "Tom Soyer"
-    },
-    {
-      "id": "bc1d",
-      "title": "qwe",
-      "body": "we",
-      "author": "John Doe"
-    },
-    {
       "id": "978c",
-      "title": "qwe",
-      "body": "we",
-      "author": "John Doe"
-    },
-    {
-      "id": "0850",
       "title": "qwe",
       "body": "we",
       "author": "John Doe"
@@ -95,36 +65,6 @@
       "title": "we",
       "body": "we",
       "author": "John Doe"
-    },
-    {
-      "id": "37d8",
-      "title": "we",
-      "body": "we",
-      "author": "John Doe"
-    },
-    {
-      "id": "c11d",
-      "title": "we",
-      "body": "we",
-      "author": "John Doe"
-    },
-    {
-      "id": "7d75",
-      "title": "we",
-      "body": "we",
-      "author": "John Doe"
-    },
-    {
-      "id": "ef6b",
-      "title": "we",
-      "body": "we",
-      "author": "Mary Jane"
-    },
-    {
-      "id": "f8c0",
-      "title": "er",
-      "body": "er",
-      "author": "Mary Jane"
     }
   ]
 }
