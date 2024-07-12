@@ -1,74 +1,61 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from 'react-router-dom'
 
 const Create = () => {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [author, setAuthor] = useState("John Doe");
-  const [isPending, setIsPending] = useState(false);
-  const navigate = useNavigate();
+    const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
+    const [author, setAuthor] = useState('John Doe');
+    const [isPending, setIsPending] = useState(false);
+    const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const blog = { title, body, author };
-    setIsPending(true);
+    const clearForm = () => {
+        setTitle('')
+        setBody('')
+        setAuthor('John Doe')
+    }
 
-    setTimeout(() => {
-      fetch("http://localhost:8000/posts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(blog),
-      }).then(() => {
-        console.log("New post was added!");
-        setIsPending(false);
-        // cleare form
-        setTitle("");
-        setBody("");
-        setAuthor("John Doe");
-        navigate('/')
-      });
-    }, 500);
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const blog = {title, body, author};
+        setIsPending(true);
 
-  return (
-    <div className="create">
-      <h2>Add a new Post!</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Post title</label>
-        <input
-          type="text"
-          required
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
+        setTimeout(() => {
+            fetch('http://localhost:8000/posts', {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(blog)
+            }).then(() => {
+                console.log('New post was added!');
+                setIsPending(false);
+                clearForm();
+                navigate('/')
+            })
+        }, 500)
+    }
 
-        <label>Post content</label>
-        <textarea
-          value={body}
-          onChange={(e) => {
-            setBody(e.target.value);
-          }}
-        ></textarea>
+    return (
+        <div className="create">
+            <h2>Add a new Post!</h2>
+            <form onSubmit={handleSubmit}>
+                <label>Post title</label>
+                <input type="text" required value={title} onChange={(e) => {setTitle(e.target.value)}} />
 
-        <label>Author</label>
-        <select
-          value={author}
-          onChange={(e) => {
-            setAuthor(e.target.value);
-          }}
-        >
-          <option value="John Doe">John Doe</option>
-          <option value="Mary Jane">Mary Jane</option>
-          <option value="Tom Soyer">Tom Soyer</option>
-        </select>
+                <label>Post content</label>
+                <textarea value={body} onChange={(e) => {setBody(e.target.value)}}></textarea>
 
-        {isPending && <button disabled>Adding Post...</button>}
-        {!isPending && <button>Create Post</button>}
-      </form>
-    </div>
-  );
-};
+                <label>Author</label>
+                <select value={author} onChange={(e) => {setAuthor(e.target.value)}}>
+                    <option value="John Doe">John Doe</option>
+                    <option value="Mary Jane">Mary Jane</option>
+                    <option value="Tom Soyer">Tom Soyer</option>
+                </select>
+
+                {isPending && <button disabled>Adding post...</button>}
+                {!isPending && <button>Create Post</button>}
+
+            </form>
+        </div>
+    );
+}
 
 export default Create;
